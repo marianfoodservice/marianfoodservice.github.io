@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Marian Food Service | Servicio de alimentación en Celaya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: "Poppins", Arial, sans-serif;
+background-color: #0d0d0f;
+color: #f5f5f5;
+line-height: 1.6;
+}
+a {
+text-decoration: none;
+color: inherit;
+}
+img {
+max-width: 100%;
+display: block;
+}
+button {
+cursor: pointer;
+border: none;
+outline: none;
+font-family: inherit;
+}
+html {
+scroll-behavior: smooth;
+}
+.wrapper {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px 60px 20px;
+}
+header {
+position: sticky;
+top: 0;
+z-index: 50;
+background: rgba(8, 8, 10, 0.96);
+backdrop-filter: blur(12px);
+}
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 18px 20px;
+}
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.logo-mark {
+width: 38px;
+height: 38px;
+border-radius: 50%;
+background: radial-gradient(circle at 30% 20%, #ff7445, #ff3a2f);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+font-size: 18px;
+color: #fff;
+}
+.logo-text {
+display: flex;
+flex-direction: column;
+}
+.logo-text span:first-child {
+font-size: 16px;
+font-weight: 600;
+}
+.logo-text span:last-child {
+font-size: 12px;
+color: #ffb199;
+}
+.nav-links {
+display: flex;
+align-items: center;
+gap: 28px;
+font-size: 14px;
+}
+.nav-links a {
+padding-bottom: 4px;
+border-bottom: 2px solid transparent;
+transition: color 0.25s ease, border-color 0.25s ease;
+}
+.nav-links a:hover {
+color: #ff7445;
+border-color: #ff7445;
+}
+.nav-cta {
+padding: 9px 20px;
+border-radius: 999px;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+font-size: 13px;
+font-weight: 600;
+color: #fff;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+box-shadow: 0 10px 24px rgba(255, 80, 60, 0.5);
+}
+.nav-cta:hover {
+transform: translateY(-2px);
+box-shadow: 0 16px 38px rgba(255, 80, 60, 0.7);
+}
+.menu-toggle {
+display: none;
+flex-direction: column;
+gap: 4px;
+}
+.menu-toggle span {
+width: 20px;
+height: 2px;
+background: #ffffff;
+border-radius: 999px;
+}
+.hero {
+background: radial-gradient(circle at 0% 0%, #2b2b33, #050507);
+}
+.hero-inner {
+display: grid;
+grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+gap: 40px;
+align-items: center;
+padding: 60px 0 40px 0;
+}
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+padding: 5px 12px;
+border-radius: 999px;
+background: rgba(19, 19, 24, 0.9);
+border: 1px solid rgba(255, 255, 255, 0.05);
+font-size: 11px;
+margin-bottom: 18px;
+}
+.hero-badge-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: radial-gradient(circle at 30% 10%, #52ff8a, #15b867);
+}
+.hero-title {
+font-size: 38px;
+line-height: 1.15;
+margin-bottom: 14px;
+}
+.hero-title span {
+color: #ff7445;
+}
+.hero-subtitle {
+font-size: 14px;
+max-width: 480px;
+color: #cecece;
+margin-bottom: 22px;
+}
+.hero-stats {
+display: flex;
+flex-wrap: wrap;
+gap: 24px;
+margin-bottom: 24px;
+font-size: 13px;
+}
+.hero-stat-item {
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.hero-stat-number {
+font-size: 20px;
+font-weight: 600;
+}
+.hero-stat-label {
+font-size: 11px;
+color: #b3b3b3;
+}
+.hero-actions {
+display: flex;
+align-items: center;
+gap: 14px;
+margin-bottom: 26px;
+}
+.hero-btn-primary {
+padding: 11px 26px;
+border-radius: 999px;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+font-size: 14px;
+font-weight: 600;
+color: #fff;
+box-shadow: 0 16px 32px rgba(255, 80, 60, 0.7);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 22px 40px rgba(255, 80, 60, 0.9);
+}
+.hero-btn-secondary {
+padding: 11px 24px;
+border-radius: 999px;
+background: transparent;
+border: 1px solid rgba(255, 255, 255, 0.18);
+font-size: 13px;
+font-weight: 500;
+color: #ffffff;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.hero-btn-secondary span {
+display: inline-block;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #ff7445;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+}
+.hero-btn-secondary:hover {
+background: rgba(255, 255, 255, 0.06);
+transform: translateY(-2px);
+}
+.hero-note {
+font-size: 11px;
+color: #aaaaaa;
+}
+.hero-media {
+position: relative;
+display: flex;
+justify-content: center;
+}
+.hero-card {
+position: relative;
+border-radius: 28px;
+overflow: hidden;
+background: radial-gradient(circle at 0% 0%, #ff7445, #181820);
+box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+max-width: 400px;
+width: 100%;
+}
+.hero-card-image-wrapper {
+position: relative;
+}
+.hero-card-image-wrapper::before {
+content: "";
+position: absolute;
+inset: 0;
+background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.18), transparent 50%);
+mix-blend-mode: screen;
+pointer-events: none;
+}
+.hero-chef-image {
+width: 100%;
+height: 280px;
+object-fit: cover;
+}
+.hero-card-content {
+padding: 18px 18px 20px 18px;
+background: linear-gradient(180deg, rgba(11, 11, 16, 0.96), #08080d);
+}
+.hero-card-title {
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 4px;
+}
+.hero-card-subtitle {
+font-size: 11px;
+color: #bdbdbd;
+margin-bottom: 10px;
+}
+.hero-card-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 14px;
+}
+.hero-card-tag {
+font-size: 10px;
+padding: 4px 10px;
+border-radius: 999px;
+background: rgba(255, 255, 255, 0.06);
+}
+.hero-card-footer {
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 11px;
+color: #c9c9c9;
+}
+.hero-card-rating {
+display: flex;
+align-items: center;
+gap: 4px;
+}
+.star {
+color: #ffb547;
+font-size: 13px;
+}
+.section {
+padding: 60px 0 40px 0;
+}
+.section-header {
+display: flex;
+flex-direction: column;
+gap: 6px;
+margin-bottom: 30px;
+}
+.section-kicker {
+font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: #ff7445;
+}
+.section-title {
+font-size: 24px;
+font-weight: 600;
+}
+.section-subtitle {
+font-size: 13px;
+max-width: 560px;
+color: #c5c5c5;
+}
+.section-grid-two {
+display: grid;
+grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+gap: 40px;
+align-items: flex-start;
+}
+.about-text p {
+font-size: 14px;
+margin-bottom: 12px;
+color: #dfdfdf;
+}
+.about-highlights {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 18px;
+margin-top: 10px;
+}
+.about-highlight {
+padding: 12px 14px;
+border-radius: 18px;
+background: linear-gradient(145deg, #181820, #101016);
+border: 1px solid rgba(255, 255, 255, 0.04);
+font-size: 12px;
+}
+.about-highlight strong {
+display: block;
+margin-bottom: 4px;
+font-size: 13px;
+}
+.about-badges {
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+.about-badge {
+padding: 12px 14px;
+border-radius: 18px;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+color: #fff;
+font-size: 12px;
+box-shadow: 0 18px 40px rgba(255, 80, 60, 0.6);
+}
+.about-badge span {
+display: block;
+font-size: 10px;
+opacity: 0.9;
+margin-top: 4px;
+}
+.about-badge-neutral {
+padding: 12px 14px;
+border-radius: 18px;
+background: radial-gradient(circle at 0% 0%, #262634, #14141b);
+font-size: 12px;
+}
+.services-wrapper {
+background: radial-gradient(circle at 0% 0%, #1f1f27, #09090d);
+border-radius: 26px;
+padding: 26px 22px 24px 22px;
+box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+.services-header-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 18px;
+}
+.services-header-row p {
+font-size: 12px;
+color: #c2c2c2;
+max-width: 380px;
+}
+.services-slider-hint {
+font-size: 11px;
+color: #ffb199;
+}
+.services-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 14px;
+}
+.service-card {
+border-radius: 22px;
+background: linear-gradient(160deg, #181820, #111117);
+padding: 14px 14px 16px 14px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+position: relative;
+overflow: hidden;
+border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.service-card-highlight {
+background: linear-gradient(145deg, #ff7445, #ff3a2f);
+}
+.service-card-chip {
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 10px;
+padding: 3px 9px;
+border-radius: 999px;
+background: rgba(0, 0, 0, 0.3);
+color: #ffe3d7;
+}
+.service-icon {
+width: 34px;
+height: 34px;
+border-radius: 15px;
+background: rgba(255, 255, 255, 0.05);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+margin-bottom: 4px;
+}
+.service-title {
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 4px;
+}
+.service-text {
+font-size: 12px;
+color: #e5e5e5;
+margin-bottom: 4px;
+}
+.service-meta {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 11px;
+color: #bbbbbb;
+margin-top: auto;
+}
+.service-arrow {
+width: 24px;
+height: 24px;
+border-radius: 999px;
+background: rgba(255, 255, 255, 0.08);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 13px;
+}
+.benefits-wrapper {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+gap: 32px;
+align-items: flex-start;
+}
+.benefits-list {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 16px;
+}
+.benefit-card {
+border-radius: 22px;
+background: linear-gradient(150deg, #181821, #121218);
+padding: 16px 16px 18px 16px;
+border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.benefit-label {
+font-size: 11px;
+color: #ffb199;
+margin-bottom: 6px;
+}
+.benefit-title {
+font-size: 14px;
+font-weight: 600;
+margin-bottom: 6px;
+}
+.benefit-text {
+font-size: 12px;
+color: #dedede;
+}
+.benefits-side {
+border-radius: 22px;
+background: radial-gradient(circle at 0 0, #ff7445, #121218);
+padding: 18px 18px 20px 18px;
+position: relative;
+overflow: hidden;
+box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+}
+.benefits-side small {
+font-size: 11px;
+color: #ffe3d2;
+}
+.benefits-side strong {
+display: block;
+margin-top: 4px;
+margin-bottom: 10px;
+}
+.benefits-pills {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-top: 8px;
+}
+.benefits-pill {
+font-size: 11px;
+padding: 4px 10px;
+border-radius: 999px;
+background: rgba(0, 0, 0, 0.34);
+color: #ffe6dc;
+}
+.process-wrapper {
+border-radius: 26px;
+background: radial-gradient(circle at 100% 0%, #262636, #09090d);
+padding: 24px 20px 26px 20px;
+box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+}
+.process-steps {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 18px;
+margin-top: 16px;
+}
+.process-step {
+display: flex;
+flex-direction: column;
+gap: 8px;
+padding: 14px 14px 16px 14px;
+border-radius: 20px;
+background: linear-gradient(150deg, #181820, #111118);
+position: relative;
+}
+.process-step-number {
+width: 26px;
+height: 26px;
+border-radius: 50%;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 13px;
+font-weight: 600;
+color: #fff;
+}
+.process-step-title {
+font-size: 14px;
+font-weight: 600;
+}
+.process-step-text {
+font-size: 12px;
+color: #dcdcdc;
+}
+.process-arrow {
+position: absolute;
+right: -12px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 18px;
+color: #ff7445;
+}
+.process-steps .process-step:last-child .process-arrow {
+display: none;
+}
+.process-footnote {
+margin-top: 16px;
+font-size: 11px;
+color: #b3b3b3;
+}
+.contact-section {
+padding: 50px 0 40px 0;
+}
+.contact-inner {
+border-radius: 26px;
+background: radial-gradient(circle at 0% 0%, #262633, #101018);
+padding: 26px 22px 26px 22px;
+display: grid;
+grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+gap: 28px;
+align-items: center;
+box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+}
+.contact-copy h3 {
+font-size: 22px;
+margin-bottom: 8px;
+}
+.contact-copy p {
+font-size: 13px;
+color: #d8d8d8;
+margin-bottom: 10px;
+}
+.contact-points {
+font-size: 12px;
+color: #ffb199;
+margin-bottom: 14px;
+}
+.contact-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+.contact-tag {
+font-size: 11px;
+padding: 4px 10px;
+border-radius: 999px;
+background: rgba(255, 255, 255, 0.06);
+}
+.contact-cta-box {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
+.contact-cta-label {
+font-size: 11px;
+color: #ffb199;
+}
+.contact-cta-button {
+padding: 12px 26px;
+border-radius: 999px;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+color: #fff;
+font-size: 14px;
+font-weight: 600;
+box-shadow: 0 18px 40px rgba(255, 80, 60, 0.7);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.contact-cta-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 24px 52px rgba(255, 80, 60, 0.9);
+}
+.contact-cta-note {
+font-size: 11px;
+color: #c4c4c4;
+max-width: 240px;
+}
+.footer {
+padding: 30px 0 10px 0;
+border-top: 1px solid rgba(255, 255, 255, 0.06);
+font-size: 11px;
+color: #b5b5b5;
+}
+.footer-row {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 10px;
+}
+.footer-contact {
+display: flex;
+flex-direction: column;
+gap: 2px;
+}
+.footer-contact a {
+color: #ffb199;
+}
+.footer-small {
+font-size: 10px;
+color: #8f8f8f;
+margin-top: 8px;
+}
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(4, 4, 6, 0.85);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 80;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.25s ease, visibility 0.25s ease;
+padding: 16px;
+}
+.modal-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+.modal {
+max-width: 460px;
+width: 100%;
+border-radius: 22px;
+background: radial-gradient(circle at 0% 0%, #262636, #111119);
+box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+padding: 22px 22px 20px 22px;
+position: relative;
+}
+.modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 14px;
+}
+.modal-title {
+font-size: 18px;
+font-weight: 600;
+}
+.modal-subtitle {
+font-size: 12px;
+color: #d6d6d6;
+margin-bottom: 12px;
+}
+.modal-close {
+background: transparent;
+width: 26px;
+height: 26px;
+border-radius: 999px;
+border: 1px solid rgba(255, 255, 255, 0.18);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+color: #f5f5f5;
+transition: background 0.2s ease;
+}
+.modal-close:hover {
+background: rgba(255, 255, 255, 0.06);
+}
+.form-group {
+display: flex;
+flex-direction: column;
+gap: 4px;
+margin-bottom: 12px;
+}
+.form-label {
+font-size: 12px;
+}
+.form-input,
+.form-textarea {
+width: 100%;
+border-radius: 14px;
+border: 1px solid rgba(255, 255, 255, 0.16);
+background: rgba(3, 3, 8, 0.9);
+padding: 9px 11px;
+font-size: 12px;
+color: #f5f5f5;
+outline: none;
+transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+color: #8d8d8d;
+}
+.form-input:focus,
+.form-textarea:focus {
+border-color: #ff7445;
+box-shadow: 0 0 0 1px rgba(255, 116, 69, 0.5);
+}
+.form-textarea {
+min-height: 90px;
+resize: vertical;
+}
+.form-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 6px;
+gap: 12px;
+}
+.form-hint {
+font-size: 10px;
+color: #b6b6b6;
+max-width: 220px;
+}
+.form-submit {
+padding: 10px 20px;
+border-radius: 999px;
+background: linear-gradient(135deg, #ff7445, #ff3a2f);
+color: #ffffff;
+font-size: 13px;
+font-weight: 600;
+box-shadow: 0 16px 32px rgba(255, 80, 60, 0.7);
+}
+.success-modal-body {
+text-align: center;
+padding: 10px 4px 4px 4px;
+}
+.success-icon {
+width: 52px;
+height: 52px;
+border-radius: 50%;
+margin: 0 auto 10px auto;
+background: radial-gradient(circle at 30% 10%, #52ff8a, #16b867);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 26px;
+}
+.success-title {
+font-size: 18px;
+margin-bottom: 6px;
+}
+.success-text {
+font-size: 12px;
+color: #d8d8d8;
+margin-bottom: 14px;
+}
+.success-button {
+padding: 10px 20px;
+border-radius: 999px;
+background: rgba(255, 255, 255, 0.06);
+font-size: 12px;
+color: #ffffff;
+}
+@media (max-width: 960px) {
+.hero-inner {
+grid-template-columns: minmax(0, 1fr);
+padding-top: 40px;
+}
+.section-grid-two,
+.benefits-wrapper,
+.contact-inner {
+grid-template-columns: minmax(0, 1fr);
+}
+.services-grid {
+grid-template-columns: minmax(0, 1fr);
+}
+.process-steps {
+grid-template-columns: minmax(0, 1fr);
+}
+.process-steps .process-step .process-arrow {
+display: none;
+}
+.nav-links {
+display: none;
+position: absolute;
+right: 20px;
+top: 56px;
+flex-direction: column;
+gap: 14px;
+padding: 14px 16px;
+border-radius: 16px;
+background: radial-gradient(circle at 0 0, #262634, #14141b);
+box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+}
+.nav-links.active {
+display: flex;
+}
+.menu-toggle {
+display: flex;
+}
+}
+@media (max-width: 640px) {
+.hero-title {
+font-size: 30px;
+}
+.contact-inner {
+padding: 22px 18px;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="wrapper">
+<div class="navbar">
+<div class="logo">
+<div class="logo-mark">M</div>
+<div class="logo-text">
+<span>Marian Food Service</span>
+<span>Cocina diaria para empresas</span>
+</div>
+</div>
+<nav class="nav-links" id="navLinks">
+<a href="#inicio">Inicio</a>
+<a href="#sobre">Nuestra historia</a>
+<a href="#servicios">Soluciones</a>
+<a href="#ventajas">Valor agregado</a>
+<a href="#proceso">Cómo trabajamos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+<div class="menu-toggle" id="menuToggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<button class="nav-cta" id="navContactBtn">Planear menú para tu equipo</button>
+</div>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="wrapper">
+<div class="hero-inner">
+<div class="hero-copy">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
+<span>Servicio integral de alimentación corporativa en Celaya</span>
+</div>
+<h1 class="hero-title">Sabores que acompañan cada turno en <span>Marian Food Service</span></h1>
+<p class="hero-subtitle">Diseñamos, producimos y servimos menús equilibrados para comedores empresariales, líneas de producción y eventos internos en Celaya, con procesos estandarizados y recetas pensadas para equipos que trabajan al máximo.</p>
+<div class="hero-stats">
+<div class="hero-stat-item">
+<span class="hero-stat-number">3+</span>
+<span class="hero-stat-label">años cocinando para empresas del Bajío</span>
+</div>
+<div class="hero-stat-item">
+<span class="hero-stat-number">850+</span>
+<span class="hero-stat-label">comensales atendidos cada día laboral</span>
+</div>
+<div class="hero-stat-item">
+<span class="hero-stat-number">3</span>
+<span class="hero-stat-label">formatos: comedor, box lunch y coffee break</span>
+</div>
+</div>
+<div class="hero-actions">
+<button class="hero-btn-primary" id="heroContactBtn">Hablar sobre mi servicio de alimentos</button>
+<button class="hero-btn-secondary" id="heroScrollServices">
+<span>↓</span>
+Ver menús corporativos
+</button>
+</div>
+<p class="hero-note">Operamos desde Girasoles, Celaya, con producción propia y logística diseñada para llegar puntual a tus horarios de comida.</p>
+</div>
+<div class="hero-media">
+<div class="hero-card">
+<div class="hero-card-image-wrapper">
+<img src="https://images.pexels.com/photos/8478057/pexels-photo-8478057.jpeg" alt="Equipo de cocina preparando servicio para comedor empresarial" class="hero-chef-image">
+</div>
+<div class="hero-card-content">
+<div class="hero-card-title">Celaya Lunch Service</div>
+<div class="hero-card-subtitle">Menús diarios para equipos de producción, oficinas administrativas y eventos internos.</div>
+<div class="hero-card-tags">
+<div class="hero-card-tag">Comedor en sitio</div>
+<div class="hero-card-tag">Entregas programadas</div>
+<div class="hero-card-tag">Opciones saludables</div>
+</div>
+<div class="hero-card-footer">
+<div class="hero-card-rating">
+<span class="star">★</span>
+<span>4.9 promedio de satisfacción</span>
+</div>
+<div>Recetas rotativas cada 3 semanas</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="sobre">
+<div class="wrapper">
+<div class="section-header">
+<span class="section-kicker">Quién está detrás de los platos</span>
+<h2 class="section-title">La cocina que piensa como tu área de recursos humanos</h2>
+<p class="section-subtitle">Marian Food Service, S.A. de C.V. nació en Celaya para resolver un reto muy puntual: ofrecer comida consistente, puntual y nutritiva para equipos que no pueden detener la operación. No somos un restaurante al uso; somos un aliado de talento y productividad.</p>
+</div>
+<div class="section-grid-two">
+<div class="about-text">
+<p>Desde nuestra base en Abedul No. 104, colonia Girasoles, coordinamos cada día la producción y entrega de menús completos para empresas manufactureras, oficinas de servicios y plantas logísticas. Podemos trabajar tanto en tu comedor interno como enviando los alimentos perfectamente embalados a tus instalaciones.</p>
+<p>Nuestro equipo combina chefs con experiencia en cocina casera mexicana, nutriólogas que revisan el balance de cada menú y coordinadores de servicio que entienden lo que significa servir a una línea que no puede detenerse. Sabemos planear por turnos, por horarios escalonados y por campañas de alto volumen.</p>
+<p>Diseñamos cartas cíclicas de temporada que se ajustan a las preferencias de tus colaboradores, a sus restricciones alimenticias y a los objetivos de bienestar corporativo. Todos los platillos se prueban y documentan antes de entrar a producción, para que cada porción salga exactamente igual, todos los días.</p>
+<p>En Marian Food Service hablamos el idioma de tus indicadores: tiempos de servicio, asistencia, satisfacción interna y cero desperdicio. Cada dato que obtenemos de tu comedor lo convertimos en decisiones de menú, porción y logística.</p>
+<div class="about-highlights">
+<div class="about-highlight">
+<strong>Enfoque industrial</strong>
+Atendemos plantas con turnos escalonados, líneas continuas y horarios restringidos, adaptando las rutas de entrega y el montaje del servicio a cada cliente.
+</div>
+<div class="about-highlight">
+<strong>Recetas tipo hogar</strong>
+Llevamos comida con sabor casero a contextos de alto desempeño: guisos, caldos, opciones a la plancha y guarniciones frescas que no saturan al equipo.
+</div>
+<div class="about-highlight">
+<strong>Celaya como centro</strong>
+Nuestra ubicación en Girasoles nos permite llegar a parques industriales y zonas empresariales del Bajío con tiempos de traslado controlados y rutas definidas.
+</div>
+</div>
+</div>
+<div class="about-badges">
+<div class="about-badge">
+Más de 2 000 000 de raciones servidas sin interrupción de operación en diferentes empresas de la región.
+<span>Combinamos procedimientos estandarizados con la cercanía de un proveedor local que conoce a tus comensales por nombre.</span>
+</div>
+<div class="about-badge-neutral">
+Diseñamos el servicio con tu equipo de recursos humanos y seguridad e higiene, para garantizar que la experiencia en el comedor sea fluida, segura y alineada a las políticas internas.
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="servicios">
+<div class="wrapper">
+<div class="section-header">
+<span class="section-kicker">Lo que podemos cocinar para tu empresa</span>
+<h2 class="section-title">Soluciones de alimentación pensadas para turnos, no para mesas sueltas</h2>
+<p class="section-subtitle">Cada servicio está diseñado para resolver contextos diferentes: comedores que operan todo el día, oficinas con horarios flexibles, equipos de campo y reuniones estratégicas en las que la comida no puede fallar.</p>
+</div>
+<div class="services-wrapper">
+<div class="services-header-row">
+<p>Elige el formato que mejor se adapta a tu operación. Podemos combinar más de un servicio según las áreas de tu organización y escalar rápidamente cuando creces.</p>
+<p class="services-slider-hint">Menús rotativos, recetas probadas y control de porciones en cada modalidad.</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-card-chip">Turnos fijos</div>
+<div class="service-icon">🍽</div>
+<div class="service-title">Comedor empresarial en sitio</div>
+<p class="service-text">Montamos y operamos tu comedor interno con personal, equipo y logística completa. Definimos horarios por turno, flujos de servicio y puntos de hidratación para que tus colaboradores coman sin hacer filas extensas.</p>
+<p class="service-text">El menú incluye plato fuerte, guarnición, opción ligera, barra de ensaladas básica y bebida, con controles de porción y registro de asistencia diaria para tus reportes internos.</p>
+<div class="service-meta">
+<span>Ideal para plantas con más de 80 comensales</span>
+<div class="service-arrow">↗</div>
+</div>
+</div>
+<div class="service-card service-card-highlight">
+<div class="service-card-chip">Equipos en movimiento</div>
+<div class="service-icon">🥙</div>
+<div class="service-title">Box lunch corporativo</div>
+<p class="service-text">Preparamos cajas individuales para personal de campo, capacitaciones, rutas logísticas o equipos que comen en trayecto. Cada box incluye opción principal, guarnición, snack y bebida, en empaques pensados para manipulación frecuente.</p>
+<p class="service-text">Las combinaciones se definen contigo por campaña o por proyecto, considerando tiempos de traslado, accesos a refrigeración y requerimientos calóricos de la actividad.</p>
+<div class="service-meta">
+<span>Menos tiempos muertos, más productividad</span>
+<div class="service-arrow">↗</div>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-chip">Reuniones clave</div>
+<div class="service-icon">☕</div>
+<div class="service-title">Coffee break y mini banquetes</div>
+<p class="service-text">Diseñamos montajes discretos y eficientes para juntas de consejo, capacitaciones internas y visitas de clientes. Incluimos bocadillos salados, dulces, opciones saludables y bebidas calientes y frías.</p>
+<p class="service-text">Adaptamos el servicio al tono de cada evento: desde sesiones rápidas de trabajo hasta presentaciones ejecutivas donde quieres que cada detalle hable bien de tu empresa.</p>
+<div class="service-meta">
+<span>Servicio en salas y auditorios</span>
+<div class="service-arrow">↗</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="ventajas">
+<div class="wrapper">
+<div class="section-header">
+<span class="section-kicker">Más que buena comida</span>
+<h2 class="section-title">Por qué las empresas de Celaya confían sus comedores a Marian</h2>
+<p class="section-subtitle">Nuestro trabajo impacta en la asistencia, el clima laboral y la permanencia del personal. Por eso cuidamos los detalles que a veces no se ven, pero se sienten todos los días en el comedor.</p>
+</div>
+<div class="benefits-wrapper">
+<div class="benefits-list">
+<div class="benefit-card">
+<div class="benefit-label">Calidad que se mide</div>
+<div class="benefit-title">Recetas estandarizadas y trazables</div>
+<p class="benefit-text">Cada platillo tiene ficha técnica, gramajes definidos y procedimiento documentado. Esto nos permite replicar el mismo sabor en todos los turnos, controlar costos y reaccionar rápido cuando hay cambios en insumos o volumen.</p>
+</div>
+<div class="benefit-card">
+<div class="benefit-label">Personas en el centro</div>
+<div class="benefit-title">Menús pensados para tu plantilla</div>
+<p class="benefit-text">Escuchamos a tus colaboradores mediante encuestas periódicas en el comedor y ajustamos la carta con base en sus comentarios y restricciones alimenticias. Así logramos platos que gustan, nutren y respetan la diversidad de tu equipo.</p>
+</div>
+<div class="benefit-card">
+<div class="benefit-label">Operación sin sobresaltos</div>
+<div class="benefit-title">Logística creada para no detener la línea</div>
+<p class="benefit-text">Planificamos entregas, montajes y retiros de servicio para que los horarios de comida no choquen con tus picos de producción. Cuando hay cambios de turno o nuevos proyectos, ajustamos el servicio desde la cocina, no desde tu estrés.</p>
+</div>
+</div>
+<div class="benefits-side">
+<small>Lo que buscamos con cada empresa que llega a Marian</small>
+<strong>Una alianza de largo plazo donde tu comedor sea un motivo para quedarse, no para irse.</strong>
+<p class="benefit-text">No creemos en contratos que obligan a comer a la fuerza. Preferimos construir servicios que tus colaboradores recomiendan por gusto: porciones suficientes, sabor consistente y la tranquilidad de saber que, pase lo que pase en la producción, siempre habrá un plato listo para ellos.</p>
+<div class="benefits-pills">
+<div class="benefits-pill">Evaluaciones trimestrales de satisfacción</div>
+<div class="benefits-pill">Capacitación constante a nuestro personal</div>
+<div class="benefits-pill">Ajustes de menú sin fricciones administrativas</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="proceso">
+<div class="wrapper">
+<div class="section-header">
+<span class="section-kicker">De la primera llamada al primer servicio</span>
+<h2 class="section-title">Así diseñamos y ponemos en marcha tu servicio de alimentos</h2>
+<p class="section-subtitle">Nos gusta dejar muy claro qué sucede en cada etapa. Reducimos al mínimo el tiempo entre conocernos, probar la comida y empezar a servirla todos los días en tu empresa.</p>
+</div>
+<div class="process-wrapper">
+<div class="process-steps">
+<div class="process-step">
+<div class="process-step-number">1</div>
+<h3 class="process-step-title">Diagnóstico y visita a sitio</h3>
+<p class="process-step-text">Agendamos una reunión con tu equipo de recursos humanos, operaciones y seguridad para entender turnos, espacios disponibles y expectativas. Visitamos tu comedor actual o el área donde se montará el servicio para revisar flujos, conexiones y accesos.</p>
+<span class="process-arrow">➜</span>
+</div>
+<div class="process-step">
+<div class="process-step-number">2</div>
+<h3 class="process-step-title">Diseño de menú y prueba piloto</h3>
+<p class="process-step-text">Con base en el diagnóstico, proponemos menús cíclicos, formatos de servicio y tarifas. Organizamos una degustación en tus instalaciones donde tus colaboradores califican sabor, presentación y variedad. Ajustamos las recetas con esos comentarios antes del arranque.</p>
+<span class="process-arrow">➜</span>
+</div>
+<div class="process-step">
+<div class="process-step-number">3</div>
+<h3 class="process-step-title">Arranque, medición y mejora continua</h3>
+<p class="process-step-text">Definimos juntos la fecha de inicio y los volúmenes estimados por turno. Desde el primer día llevamos registro de asistencia, tiempos de montaje y devoluciones. Cada mes presentamos un resumen de indicadores y acuerdos de mejora para que el servicio evolucione contigo.</p>
+</div>
+</div>
+<p class="process-footnote">Durante todo el proceso mantenemos un punto de contacto dedicado en Marian Food Service, que conoce tu operación y responde a ajustes de último momento sin perder el control del servicio.</p>
+</div>
+</div>
+</section>
+<section class="contact-section" id="contacto">
+<div class="wrapper">
+<div class="section-header">
+<span class="section-kicker">Hablemos de tu comedor</span>
+<h2 class="section-title">Una conversación, varios turnos mejor alimentados</h2>
+<p class="section-subtitle">Cuéntanos cómo se organizan actualmente los horarios de comida en tu empresa y qué te gustaría mejorar. A partir de ahí diseñaremos un primer borrador de servicio con menús, formatos y estimación de inversión.</p>
+</div>
+<div class="contact-inner">
+<div class="contact-copy">
+<h3>Cuéntanos qué necesita tu equipo en Celaya</h3>
+<p>¿Tu personal come en un mismo horario o por bloques? ¿Tienes comedor propio o requieres que llevemos todo montado? Entre más contexto tengamos, más fino será el primer diseño de servicio que te presentemos.</p>
+<p class="contact-points">Al llenar el formulario podrás:</p>
+<ul class="contact-points">
+<li>Compartir el número aproximado de personas por turno.</li>
+<li>Indicar restricción de espacio, insumos o horarios.</li>
+<li>Solicitar una degustación piloto en tu empresa.</li>
+</ul>
+<div class="contact-tags">
+<div class="contact-tag">Sin compromisos iniciales</div>
+<div class="contact-tag">Propuesta en menos de 48 horas hábiles</div>
+<div class="contact-tag">Servicio centrado en tu realidad</div>
+</div>
+</div>
+<div class="contact-cta-box">
+<span class="contact-cta-label">Primer paso</span>
+<button class="contact-cta-button" id="openContactBtn">Abrir formulario de contacto</button>
+<p class="contact-cta-note">Solo pedimos los datos necesarios para diseñar una propuesta inicial. No solicitamos teléfonos ni información sensible.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="wrapper">
+<div class="footer-row">
+<div class="footer-contact">
+<span>Marian Food Service, S.A. de C.V.</span>
+<span>Abedul No. 104 · 38020 Celaya (Girasoles), México</span>
+<a href="mailto:info@marianfoodservice.pro">info@marianfoodservice.pro</a>
+</div>
+<div>
+<span>Servicio de alimentación para empresas, comedores, box lunch y eventos internos en la región Bajío.</span>
+</div>
+</div>
+<div class="footer-small">
+<span>Operamos bajo estrictos estándares de higiene y seguridad alimentaria, alineados a las políticas internas de cada cliente.</span>
+</div>
+</div>
+</footer>
+<div class="modal-overlay" id="contactModal">
+<div class="modal">
+<div class="modal-header">
+<div>
+<h3 class="modal-title">Diseñemos juntos tu servicio de alimentos</h3>
+</div>
+<button class="modal-close" id="closeContactModalBtn">×</button>
+</div>
+<p class="modal-subtitle">Comparte algunos datos clave y prepararemos una propuesta de menú y formato de servicio alineada a la realidad de tu empresa en Celaya.</p>
+<form id="contactForm">
+<div class="form-group">
+<label class="form-label" for="nombre">Nombre y apellido</label>
+<input class="form-input" type="text" id="nombre" name="nombre" placeholder="¿Con quién tendremos el gusto de hablar?" required>
+</div>
+<div class="form-group">
+<label class="form-label" for="correo">Correo electrónico corporativo</label>
+<input class="form-input" type="email" id="correo" name="correo" placeholder="ejemplo@tuempresa.com" required>
+</div>
+<div class="form-group">
+<label class="form-label" for="empresa">Nombre de la empresa</label>
+<input class="form-input" type="text" id="empresa" name="empresa" placeholder="Razón social o nombre comercial" required>
+</div>
+<div class="form-group">
+<label class="form-label" for="detalle">Cuéntanos brevemente tu contexto</label>
+<textarea class="form-textarea" id="detalle" name="detalle" placeholder="Número de colaboradores por turno, tipo de operación, horarios de comida, si cuentas con comedor o requieres servicio a domicilio…" required></textarea>
+</div>
+<div class="form-footer">
+<p class="form-hint">Usaremos estos datos únicamente para responder tu solicitud y preparar una propuesta específica para tu empresa.</p>
+<button type="submit" class="form-submit">Enviar solicitud a Marian</button>
+</div>
+</form>
+</div>
+</div>
+<div class="modal-overlay" id="successModal">
+<div class="modal">
+<div class="modal-header">
+<div class="modal-title">Mensaje enviado</div>
+<button class="modal-close" id="closeSuccessModalBtn">×</button>
+</div>
+<div class="success-modal-body">
+<div class="success-icon">✓</div>
+<p class="success-title">Gracias por escribir a Marian Food Service</p>
+<p class="success-text">Hemos recibido tu información y nuestro equipo de coordinación te contactará por correo para profundizar en los detalles de tu servicio de alimentos.</p>
+<button class="success-button" id="successOkBtn">Cerrar y volver al sitio</button>
+</div>
+</div>
+</div>
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navContactBtn = document.getElementById("navContactBtn");
+const heroContactBtn = document.getElementById("heroContactBtn");
+const heroScrollServices = document.getElementById("heroScrollServices");
+const openContactBtn = document.getElementById("openContactBtn");
+const contactModal = document.getElementById("contactModal");
+const closeContactModalBtn = document.getElementById("closeContactModalBtn");
+const successModal = document.getElementById("successModal");
+const closeSuccessModalBtn = document.getElementById("closeSuccessModalBtn");
+const successOkBtn = document.getElementById("successOkBtn");
+const contactForm = document.getElementById("contactForm");
+menuToggle.addEventListener("click", function () {
+navLinks.classList.toggle("active");
+});
+navLinks.querySelectorAll("a").forEach(function (link) {
+link.addEventListener("click", function () {
+navLinks.classList.remove("active");
+});
+});
+function openContactModal() {
+contactModal.classList.add("active");
+}
+function closeContactModal() {
+contactModal.classList.remove("active");
+}
+function openSuccessModal() {
+successModal.classList.add("active");
+}
+function closeSuccessModal() {
+successModal.classList.remove("active");
+}
+navContactBtn.addEventListener("click", openContactModal);
+heroContactBtn.addEventListener("click", openContactModal);
+openContactBtn.addEventListener("click", openContactModal);
+closeContactModalBtn.addEventListener("click", closeContactModal);
+closeSuccessModalBtn.addEventListener("click", closeSuccessModal);
+successOkBtn.addEventListener("click", closeSuccessModal);
+heroScrollServices.addEventListener("click", function () {
+const section = document.getElementById("servicios");
+if (section) {
+section.scrollIntoView({ behavior: "smooth" });
+}
+});
+contactModal.addEventListener("click", function (event) {
+if (event.target === contactModal) {
+closeContactModal();
+}
+});
+successModal.addEventListener("click", function (event) {
+if (event.target === successModal) {
+closeSuccessModal();
+}
+});
+contactForm.addEventListener("submit", function (event) {
+event.preventDefault();
+closeContactModal();
+openSuccessModal();
+contactForm.reset();
+});
+</script>
+</body>
+</html>
